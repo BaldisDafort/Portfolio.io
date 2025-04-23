@@ -1,282 +1,226 @@
-/* General Reset */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Variables globales */
+:root {
+    --primary-color: #1e40af; /* Bleu royal */
+    --secondary-color: #fbbf24; /* Jaune doré */
+    --accent-color: #dc2626; /* Rouge intense */
+    --bg-color: #f9fafb; /* Fond blanc pur */
+    --text-color: #ffffff; /* Texte blanc */
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* Corps de la page */
 body {
-    font-family: Arial, sans-serif;
-    background: burlywood;
-    color: black;
+    font-family: var(--font-family);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    line-height: 1.6;
     overflow-x: hidden;
-    cursor: none; /* Hide default cursor */
-    text-align: center;
-}
-header {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-}
-button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-}
-section {
-    padding: 2rem;
-    min-height: 100vh;
-    width: 100vw;
-}
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #333;
-    color: white;
 }
 
-img {
-    border-radius: 10px;
-}
-
-.hide-text {
-    color: #000;
-}
-
-.about-texte {
-    color: #000;
-}
-
-/* Centrer le contenu de la balise <p> */
-.centered {
-    display: flex; /* Utilise Flexbox */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    gap: 10px; /* Ajoute un espacement entre les éléments */
-    text-align: center; /* Centrage du texte */
-}
-
-/* Ajuster les SVG pour être alignés avec le texte */
-.centered svg {
-    width: 24px; /* Ajuste la taille des icônes */
-    height: 24px;
-    vertical-align: middle; /* Aligne verticalement */
-}
-
-
-/* Section #home */
-#home {
-    display: flex;
-    align-items: center; /* Centre verticalement le contenu */
-    justify-content: center; /* Centre horizontalement le contenu */
-    height: 100vh; /* La section occupe toute la hauteur de la fenêtre */
-    padding: 0; /* Supprime les marges internes */
-    margin: 0; /* Supprime les marges externes */
-}
-
-/* Conteneur principal */
-.corps-home {
-    display: flex; /* Flexbox pour aligner les enfants côte à côte */
-    width: 100%; /* Prend toute la largeur disponible */
-    height: auto; /* S'ajuste automatiquement à la taille du contenu */
-}
-
-/* Texte à gauche */
-.corps-texte {
-    flex: 1; /* Prend une part égale de l'espace disponible */
+/* Barre de navigation verticale */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 100vh;
+    background: var(--primary-color);
+    color: var(--text-color);
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre verticalement le texte */
-    align-items: center; /* Centre horizontalement le texte */
-    padding: 2rem; /* Espace autour du contenu */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.corps-texte p {
-    font-size: 1.5rem;
-}
-
-/* Photo à droite */
-.corps-photo {
-    flex: 1; /* Prend une part égale de l'espace disponible */
+.nav-links {
+    list-style: none;
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: flex-start;
+    padding-left: 1rem;
+    gap: 1rem; /* Espacement entre les liens */
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background: transparent;
+}
+
+.nav-links li {
+    position: relative; /* Permet d'ajouter des pseudo-éléments */
+}
+
+.nav-link:hover {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+}
+
+.nav-link.active {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+}
+
+/* Contenu principal */
+main {
+    padding-left: 160px;
+}
+
+/* Style générique pour toutes les sections */
+.section {
+    padding: 4rem 2rem; /* Espacement intérieur pour le contenu */
+    position: relative; /* Permet de positionner la ligne */
+}
+
+/* Ajout d'une ligne de séparation après chaque section */
+.section:not(:last-child)::after {
+    content: ''; /* Ajoute un pseudo-élément */
+    display: block;
+    width: 100%; /* Largeur complète de la section */
+    height: 2px; /* Épaisseur de la ligne */
+    background: var(--primary-color); /* Couleur de la ligne (bleu royal) */
+    position: absolute;
+    bottom: 0; /* Alignée en bas de la section */
+    left: 0; /* Alignement à gauche */
+    z-index: 1; /* S'assure que la ligne est au-dessus du contenu */
+}
+
+#home {
+    display: flex; /* Utilise Flexbox pour aligner les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: center; /* Centre horizontalement les éléments */
+    min-height: 100vh; /* Hauteur minimale de la section égale à la hauteur de l'écran */
+    max-height: 100vh; /* Hauteur maximale de la section */
+    padding: 2rem; /* Espacement intérieur */
+    box-sizing: border-box; /* Assure que le padding est inclus dans la hauteur totale */
+    overflow: hidden; /* Empêche le contenu de dépasser la section */
+}
+
+.corps-home {
+    display: flex; /* Alignement horizontal des éléments */
+    gap: 2rem; /* Espacement entre le texte et l'image */
+    width: 100%; /* Remplit toute la largeur disponible */
+    max-width: 1200px; /* Limite la largeur maximale pour un design responsive */
+    margin: 0 auto; /* Centre le contenu horizontalement */
+}
+
+.corps-texte {
+    flex: 1; /* Prend exactement 50% de l'espace disponible */
+    max-width: 50%; /* Limite la largeur maximale à 50% */
+}
+
+.corps-photo {
+    flex: 1; /* Prend exactement 50% de l'espace disponible */
+    max-width: 50%; /* Limite la largeur maximale à 50% */
+    display: flex; /* Centre l'image horizontalement et verticalement */
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    overflow: hidden; /* Masque les débordements d'image */
 }
 
 .corps-photo img {
-    width: 75%; /* L'image remplit toute la largeur de la div */
-    height: 75%; /* L'image remplit toute la hauteur de la div */
-    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse son conteneur sans déformation */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 100%; /* Image responsive */
+    height: 80%;
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre pour un effet moderne */
+}
+
+/* Section À propos */
+
+#about {
+    min-height: 100vh; /* Hauteur minimale de la section */
+    max-height: 100vh; /* Hauteur maximale de la section */
 }
 
 .about-seg {
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #f9f9f9;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
-/* Custom Cursor */
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border: 2px solid white;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 1000;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+/* Section Projets */
+
+#projects {
+    min-height: 100vh; /* Hauteur minimale de la section */
+    max-height: 100vh; /* Hauteur maximale de la section */
 }
-.custom-cursor.hover {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
-/* Dark Theme */
-body.dark-theme {
-    background: black;
-    color: white;
-}
-body.dark-theme header {
-    background: #555;
-}
-/* Particles */
-#particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-.particle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    animation: float 10s linear infinite;
-}
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-100vh);
-    }
-}
-/* Project Section */
-.project {
-    margin: 1rem;
-    display: inline-block;
-    width: 30%;
-    cursor: pointer;
-}
-.project img {
-    width: 100%;
+
+.project-card {
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
     transition: transform 0.3s ease;
 }
-.project img:hover {
-    transform: scale(1.05);
+
+.project-card:hover {
+    transform: translateY(-10px);
 }
-/* Project Details */
-.project-details {
-    display: none;
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
+
+.project-card img {
+    max-width: 95%;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-.project-details h3 {
     margin-bottom: 1rem;
 }
-.project-details button {
-    padding: 0.5rem 1rem;
-    background: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 1rem;
-    border-radius: 5px;
-}
-.project-details button:hover {
-    background: #444;
+
+.project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Contenu des onglets */
-.tab-content {
-    display: none;
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: #f9f9f9;
-    position: relative;
-    margin-top: 1rem;
-    animation: fadeIn 0.3s ease;
-}
-.tab-content.active {
-    display: block;
-}
-.close-tab {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-#theme-switcher {
+/* Section Contact */
+#contact {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #000;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
-    transition: border-color 0.3s ease;
-    color: white;
-}
-body.dark-theme #theme-switcher {
-    border-color: #fff;
-}
-#theme-switcher svg {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
-}
-#theme-switcher:hover svg {
-    transform: scale(1.2);
+    text-align: center;
+    padding: 4rem 2rem;
 }
 
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-bottom: 1rem;
+}
 
+.contact-button:hover {
+    background: var(--accent-color);
+}
+
+/* Pied de page */
+footer {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem;
+    margin-left: 160px;
+}
