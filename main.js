@@ -120,6 +120,13 @@ document.querySelectorAll('.project-card').forEach(card => {
         // Afficher les détails du projet sélectionné
         if (detailsContainer) {
             detailsContainer.classList.add('active');
+            // Défilement vers les détails avec un offset pour la navigation
+            const offset = window.innerWidth <= 768 ? 80 : 0; // Offset pour mobile
+            const detailsPosition = detailsContainer.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+                top: detailsPosition,
+                behavior: 'smooth'
+            });
         }
     });
 });
