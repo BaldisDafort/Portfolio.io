@@ -91,19 +91,225 @@
             </div>
         </section>
 
+        <!-- Section Compétences -->
+        <section id="competences" class="section">
+            <h2>Mes Compétences</h2>
+            <div class="competences-container">
+                <div class="competence-category">
+                    <h3>Développement Front-end</h3>
+                    <div class="competence-grid">
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/html5-logo.png" alt="HTML5" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>HTML5</h4>
+                            </div>
+                        </div>
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/css3-logo.png" alt="CSS3" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>CSS3</h4>
+                            </div>
+                        </div>
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/javascript-logo.png" alt="JavaScript" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>JavaScript</h4>
+                            </div>
+                        </div>
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/react-logo.png" alt="React" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>React</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-category">
+                    <h3>Développement Back-end</h3>
+                    <div class="competence-grid">
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/php-logo.png" alt="PHP" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>PHP</h4>
+                            </div>
+                        </div>
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/sql-logo.png" alt="SQL" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>SQL</h4>
+                            </div>
+                        </div>
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/nosql-logo.png" alt="NoSQL" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>NoSQL</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competence-category">
+                    <h3>Outils & Méthodologies</h3>
+                    <div class="competence-grid">
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/git-logo.png" alt="Git" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>Git</h4>
+                            </div>
+                        </div>
+                        <div class="competence-item">
+                            <div class="competence-icon">
+                                <img src="img/agile-logo.png" alt="Agile" class="tech-logo">
+                            </div>
+                            <div class="competence-info">
+                                <h4>Méthodologie Agile</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section Projets -->
         <section id="projects" class="section">
             <h2>Mes Projets</h2>
             <div class="project-grid">
-                <div class="project-card">
+                <div class="project-card" data-project="puntos">
                     <img src="img\Logo_Puntos.png" alt="Projet Puntos">
                     <h3>Puntos</h3>
                     <p>Jeu interactif combinant Puissance 4 et stratégie</p>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-project="nausicaa">
                     <img src="img\logo_nausicaa.png" alt="Projet 2">
                     <h3>Nausicaà</h3>
                     <p>Parc aquatique</p>
+                </div>
+            </div>
+            <div class="project-details" id="puntos-details">
+                <h4>Présentation du Projet</h4>
+                <p>Puntos est un jeu de stratégie innovant qui réinvente le concept classique du Puissance 4 en y ajoutant des mécaniques de jeu uniques et des éléments stratégiques avancés. Ce projet a été développé dans le cadre de ma formation en BTS SIO, démontrant ma capacité à concevoir et implémenter des solutions interactives complexes.</p>
+                
+                <h4>Objectifs du Projet</h4>
+                <ul>
+                    <li>Créer une expérience de jeu moderne et engageante</li>
+                    <li>Implémenter des mécaniques de jeu innovantes</li>
+                    <li>Développer une interface utilisateur intuitive et responsive</li>
+                    <li>Assurer une expérience de jeu fluide et performante</li>
+                </ul>
+                
+                <h4>Technologies Utilisées</h4>
+                <div class="tech-stack">
+                    <img src="img/html5-logo.png" alt="HTML5">
+                    <img src="img/css3-logo.png" alt="CSS3">
+                    <img src="img/javascript-logo.png" alt="JavaScript">
+                    <img src="img/react-logo.png" alt="React">
+                </div>
+                
+                <h4>Fonctionnalités Principales</h4>
+                <ul>
+                    <li>Système de jeu basé sur des points stratégiques</li>
+                    <li>Interface utilisateur dynamique et responsive</li>
+                    <li>Système de tour par tour avec validation des coups</li>
+                    <li>Animations fluides pour une meilleure expérience utilisateur</li>
+                    <li>Système de score en temps réel</li>
+                </ul>
+                
+                <h4>Défis Techniques et Solutions</h4>
+                <p>Le développement de Puntos a présenté plusieurs défis techniques, notamment :</p>
+                <ul>
+                    <li>Optimisation des performances pour une expérience de jeu fluide</li>
+                    <li>Implémentation d'un système de validation des coups complexe</li>
+                    <li>Gestion de l'état du jeu et synchronisation des actions</li>
+                </ul>
+                <p>Ces défis ont été surmontés grâce à une architecture modulaire et l'utilisation de React pour la gestion efficace de l'état de l'application.</p>
+                
+                <h4>Résultats et Impact</h4>
+                <p>Le projet Puntos a démontré ma capacité à :</p>
+                <ul>
+                    <li>Concevoir et développer des applications interactives complexes</li>
+                    <li>Gérer efficacement les états et les interactions utilisateur</li>
+                    <li>Implémenter des solutions techniques innovantes</li>
+                    <li>Maintenir une base de code propre et maintenable</li>
+                </ul>
+
+                <div class="project-links">
+                    <a href="https://github.com/BaldisDafort/puntos-front-end" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> Front-end Repository
+                    </a>
+                    <a href="https://github.com/BaldisDafort/Puntos_Back-End" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> Back-end Repository
+                    </a>
+                </div>
+            </div>
+            <div class="project-details" id="nausicaa-details">
+                <h4>Présentation du Projet</h4>
+                <p>Le projet Nausicaà est une application web développée pour le célèbre parc aquatique, visant à améliorer l'expérience des visiteurs et à optimiser la gestion des attractions. Ce projet a été réalisé dans le cadre de ma formation en BTS SIO, démontrant ma capacité à développer des solutions web complètes et adaptées aux besoins spécifiques d'une entreprise.</p>
+                
+                <h4>Objectifs du Projet</h4>
+                <ul>
+                    <li>Créer une interface utilisateur intuitive pour les visiteurs</li>
+                    <li>Développer un système de gestion des attractions en temps réel</li>
+                    <li>Implémenter un système de réservation en ligne</li>
+                    <li>Optimiser la gestion des flux de visiteurs</li>
+                </ul>
+                
+                <h4>Technologies Utilisées</h4>
+                <div class="tech-stack">
+                    <img src="img/html5-logo.png" alt="HTML5">
+                    <img src="img/css3-logo.png" alt="CSS3">
+                    <img src="img/javascript-logo.png" alt="JavaScript">
+                    <img src="img/php-logo.png" alt="PHP">
+                    <img src="img/sql-logo.png" alt="SQL">
+                </div>
+                
+                <h4>Fonctionnalités Principales</h4>
+                <ul>
+                    <li>Système de réservation en ligne des attractions</li>
+                    <li>Tableau de bord en temps réel pour la gestion des attractions</li>
+                    <li>Interface responsive adaptée à tous les appareils</li>
+                    <li>Système de notification pour les visiteurs</li>
+                    <li>Gestion des files d'attente en temps réel</li>
+                </ul>
+                
+                <h4>Défis Techniques et Solutions</h4>
+                <p>Le développement de ce projet a présenté plusieurs défis techniques :</p>
+                <ul>
+                    <li>Gestion des pics de fréquentation et optimisation des performances</li>
+                    <li>Intégration avec les systèmes existants du parc</li>
+                    <li>Développement d'une interface utilisateur intuitive et accessible</li>
+                </ul>
+                <p>Ces défis ont été surmontés grâce à une architecture robuste et l'utilisation de technologies modernes pour assurer une expérience utilisateur optimale.</p>
+                
+                <h4>Résultats et Impact</h4>
+                <p>Le projet Nausicaà a permis de :</p>
+                <ul>
+                    <li>Améliorer significativement l'expérience des visiteurs</li>
+                    <li>Optimiser la gestion des flux de visiteurs</li>
+                    <li>Réduire les temps d'attente aux attractions</li>
+                    <li>Augmenter la satisfaction client</li>
+                </ul>
+
+                <div class="project-links">
+                    <a href="https://github.com/BaldisDafort/zoo" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> Repository GitHub
+                    </a>
                 </div>
             </div>
         </section>

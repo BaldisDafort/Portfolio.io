@@ -105,3 +105,21 @@ updateAllFeeds();
 
 // Mise à jour toutes les heures
 setInterval(updateAllFeeds, 3600000);
+
+// Gestion des détails des projets
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const projectId = card.getAttribute('data-project');
+        const detailsContainer = document.getElementById(`${projectId}-details`);
+        
+        // Masquer tous les détails
+        document.querySelectorAll('.project-details').forEach(detail => {
+            detail.classList.remove('active');
+        });
+        
+        // Afficher les détails du projet sélectionné
+        if (detailsContainer) {
+            detailsContainer.classList.add('active');
+        }
+    });
+});
