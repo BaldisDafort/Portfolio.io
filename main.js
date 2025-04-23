@@ -47,3 +47,61 @@ document.querySelectorAll('.project-image').forEach(image => {
         });
     });
 });
+
+// Gestion des veilles technologiques
+async function fetchRSSFeed(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(data, "text/xml");
+        return xml;
+    } catch (error) {
+        console.error("Erreur lors de la récupération du flux RSS:", error);
+        return null;
+    }
+}
+
+function displayRSSItems(xml, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container || !xml) return;
+
+    const items = xml.getElementsByTagName("item");
+    container.innerHTML = ""; // Vider le conteneur
+
+    for (let i = 0; i < Math.min(items.length, 5); i++) {
+        const item = items[i];
+        const title = item.getElementsByTagName("title")[0].textContent;
+        const link = item.getElementsByTagName("link")[0].textContent;
+        const pubDate = new Date(item.getElementsByTagName("pubDate")[0].textContent);
+        
+        const article = document.createElement("div");
+        article.className = "veille-article";
+        article.innerHTML = `
+            <h4>${title}</h4>
+            <p class="date">${pubDate.toLocaleDateString()}</p>
+            <a href="${link}" target="_blank" class="veille-link">Lire l'article</a>
+        `;
+        container.appendChild(article);
+    }
+}
+
+// Configuration des flux RSS
+const rssFeeds = {
+    "react-feed": "URL_DE_VOTRE_FLUX_RSS_REACT",
+    "unreal-feed": "URL_DE_VOTRE_FLUX_RSS_UNREAL"
+};
+
+// Fonction pour mettre à jour tous les flux
+async function updateAllFeeds() {
+    for (const [feedId, url] of Object.entries(rssFeeds)) {
+        const xml = await fetchRSSFeed(url);
+        displayRSSItems(xml, feedId);
+    }
+}
+
+// Mise à jour initiale des flux
+updateAllFeeds();
+
+// Mise à jour toutes les heures
+setInterval(updateAllFeeds, 3600000);

@@ -88,6 +88,7 @@ main {
 .section {
     padding: 4rem 2rem; /* Espacement intérieur pour le contenu */
     position: relative; /* Permet de positionner la ligne */
+    min-height: 100vh; /* Hauteur minimale égale à la hauteur de l'écran */
 }
 
 /* Ajout d'une ligne de séparation après chaque section */
@@ -107,8 +108,6 @@ main {
     display: flex; /* Utilise Flexbox pour aligner les éléments */
     align-items: center; /* Centre verticalement les éléments */
     justify-content: center; /* Centre horizontalement les éléments */
-    min-height: 100vh; /* Hauteur minimale de la section égale à la hauteur de l'écran */
-    max-height: 100vh; /* Hauteur maximale de la section */
     padding: 2rem; /* Espacement intérieur */
     box-sizing: border-box; /* Assure que le padding est inclus dans la hauteur totale */
     overflow: hidden; /* Empêche le contenu de dépasser la section */
@@ -143,10 +142,8 @@ main {
 }
 
 /* Section À propos */
-
 #about {
     min-height: 100vh; /* Hauteur minimale de la section */
-    max-height: 100vh; /* Hauteur maximale de la section */
 }
 
 .about-seg {
@@ -154,10 +151,8 @@ main {
 }
 
 /* Section Projets */
-
 #projects {
     min-height: 100vh; /* Hauteur minimale de la section */
-    max-height: 100vh; /* Hauteur maximale de la section */
 }
 
 .project-grid {
@@ -214,6 +209,143 @@ main {
 
 .contact-button:hover {
     background: var(--accent-color);
+}
+
+/* Section Veilles Technologiques */
+#veilles {
+    min-height: 100vh; /* Hauteur minimale de la section */
+}
+
+.veilles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.veille-card {
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.veille-card:hover {
+    transform: translateY(-5px);
+}
+
+.veille-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.veille-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.veille-links {
+    margin-top: 1rem;
+}
+
+.veille-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.veille-link:hover {
+    background: var(--accent-color);
+}
+
+.veille-feed {
+    margin-top: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.veille-article {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.veille-article h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.veille-article .date {
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.veille-article .veille-link {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.veille-article .veille-link:hover {
+    background: var(--accent-color);
+}
+
+.veille-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.veille-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.veille-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.tech-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0.2rem;
+    vertical-align: middle;
+}
+
+.tech-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.tech-item:hover .tech-logo {
+    transform: scale(1.2);
+}
+
+.tech-item strong {
+    color: var(--primary-color);
 }
 
 /* Pied de page */
