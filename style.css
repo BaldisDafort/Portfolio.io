@@ -356,3 +356,119 @@ footer {
     padding: 1rem;
     margin-left: 160px;
 }
+
+/* Media Queries pour le responsive design */
+@media screen and (max-width: 1024px) {
+    .corps-home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .corps-texte, .corps-photo {
+        max-width: 100%;
+    }
+
+    .corps-photo img {
+        max-width: 80%;
+        margin: 2rem auto;
+    }
+
+    .veilles-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    /* Contenu principal */
+    main {
+        padding-left: 0;
+        padding-top: 80px;
+    }
+
+    /* Sections */
+    .section {
+        padding: 2rem 1rem;
+    }
+
+    /* Veilles technologiques */
+    .veille-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .veille-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Technologies */
+    .tech-item {
+        display: inline-block;
+        text-align: center;
+        margin: 0.5rem;
+    }
+
+    .tech-logo {
+        width: 25px;
+        height: 25px;
+        margin-bottom: 0.2rem;
+    }
+
+    /* Contact */
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-button {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.3rem;
+    }
+
+    .veille-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .tech-logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
