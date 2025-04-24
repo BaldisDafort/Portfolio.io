@@ -143,8 +143,12 @@ document.querySelector('.about-arrow').addEventListener('click', () => {
         if (!isMobile) {
             aboutContent.style.transform = 'translateX(0)';
         }
-        // Empêcher le défilement de la page
+        // Réactiver le défilement de la page
         document.body.style.overflow = 'auto';
+        // Réinitialiser le zoom
+        if (isMobile) {
+            window.scrollTo(0, 0);
+        }
     } else {
         // Aller au slide
         aboutSlide.classList.add('active');
@@ -154,6 +158,15 @@ document.querySelector('.about-arrow').addEventListener('click', () => {
         // Empêcher le défilement de la page sur mobile
         if (isMobile) {
             document.body.style.overflow = 'hidden';
+            // Réinitialiser le zoom
+            window.scrollTo(0, 0);
         }
     }
 });
+
+// Empêcher le zoom sur mobile
+document.addEventListener('touchmove', function(event) {
+    if (event.scale !== 1) {
+        event.preventDefault();
+    }
+}, { passive: false });

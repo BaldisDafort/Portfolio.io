@@ -157,6 +157,7 @@ main {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
 }
 
 .about-seg {
@@ -186,6 +187,7 @@ main {
     transition: transform 0.5s ease-in-out;
     padding: 2rem;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .about-slide.active {
@@ -216,6 +218,7 @@ main {
     transition: all 0.3s ease;
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .about-arrow:hover {
@@ -608,6 +611,8 @@ footer {
         transform: translateX(100%);
         z-index: 1000;
         padding: 2rem 1rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .about-slide.active {
@@ -628,6 +633,16 @@ footer {
         justify-content: center;
         z-index: 1001;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Empêcher le dézoom sur mobile */
+    html, body {
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
     }
 }
 
