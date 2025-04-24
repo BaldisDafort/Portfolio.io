@@ -130,3 +130,19 @@ document.querySelectorAll('.project-card').forEach(card => {
         }
     });
 });
+
+// Gestion du glissement dans la section À propos
+document.querySelector('.about-arrow').addEventListener('click', () => {
+    const aboutSlide = document.querySelector('.about-slide');
+    const aboutContent = document.querySelector('.about-content');
+    
+    // Si on est déjà sur le slide, retourner au début
+    if (aboutSlide.classList.contains('active')) {
+        aboutSlide.classList.remove('active');
+        aboutContent.style.transform = 'translateX(0)';
+    } else {
+        // Aller au slide
+        aboutSlide.classList.add('active');
+        aboutContent.style.transform = 'translateX(-100%)';
+    }
+});
