@@ -154,6 +154,11 @@ document.querySelector('.about-arrow').addEventListener('click', () => {
         // Empêcher le défilement de la page sur mobile
         if (isMobile) {
             document.body.style.overflow = 'hidden';
+            // Faire défiler vers le haut de la section
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     }
 });
