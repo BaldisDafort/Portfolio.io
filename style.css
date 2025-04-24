@@ -156,7 +156,7 @@ main {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
 }
 
@@ -168,13 +168,13 @@ main {
     position: relative;
     width: 100%;
     flex: 1;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .about-content {
     width: 100%;
     transition: transform 0.5s ease-in-out;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .about-slide {
@@ -595,15 +595,19 @@ footer {
 
     #about {
         overflow: visible;
+        min-height: auto;
     }
 
     .about-wrapper {
         overflow: visible;
         position: relative;
+        display: flex;
+        flex-direction: column;
     }
 
     .about-content {
         overflow: visible;
+        position: relative;
     }
 
     .about-slide {
@@ -620,6 +624,7 @@ footer {
         overflow: visible;
         -webkit-overflow-scrolling: touch;
         display: block;
+        margin-top: 2rem;
     }
 
     .about-slide.active {
