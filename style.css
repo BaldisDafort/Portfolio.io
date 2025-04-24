@@ -204,6 +204,8 @@ main {
     margin-bottom: 1rem;
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 0.5rem;
+    display: block;
+    width: 100%;
 }
 
 .about-seg h4 {
@@ -285,8 +287,7 @@ main {
     background: var(--bg-color);
     transition: transform 0.5s ease-in-out;
     padding: 2rem;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
 }
 
 .about-slide.active {
@@ -646,6 +647,7 @@ footer {
     /* Sections */
     .section {
         padding: 2rem 1rem;
+        overflow: visible;
     }
 
     /* Veilles technologiques */
@@ -682,56 +684,6 @@ footer {
         width: 100%;
         text-align: center;
         margin: 0.5rem 0;
-    }
-
-    #about {
-        overflow: visible;
-        min-height: auto;
-    }
-
-    .about-wrapper {
-        overflow: visible;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .about-content {
-        overflow: visible;
-        position: relative;
-    }
-
-    .about-slide {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        width: 100%;
-        height: auto;
-        background: var(--bg-color);
-        transform: none;
-        z-index: 1;
-        padding: 2rem 1rem;
-        overflow: visible;
-        -webkit-overflow-scrolling: touch;
-        display: block;
-        margin-top: 2rem;
-    }
-
-    .about-slide.active {
-        transform: none;
-    }
-
-    .about-navigation {
-        display: none;
-    }
-
-    .about-arrow {
-        display: none;
-    }
-
-    .objectives-container {
-        grid-template-columns: 1fr;
     }
 
     /* Empêcher le dézoom sur mobile */
