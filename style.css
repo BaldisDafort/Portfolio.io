@@ -625,29 +625,90 @@ footer {
         top: 0;
         left: 0;
         padding: 1rem;
+        background: var(--primary-color);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-year {
+        display: none;
     }
 
     .nav-links {
         flex-direction: row;
         justify-content: center;
         padding: 0;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     .nav-link {
         font-size: 1rem;
         padding: 0.5rem;
+        width: auto;
+        text-align: center;
     }
 
     /* Contenu principal */
     main {
         padding-left: 0;
-        padding-top: 80px;
+        padding-top: 120px;
+        width: 100%;
     }
 
     /* Sections */
     .section {
         padding: 2rem 1rem;
         overflow: visible;
+        min-height: auto;
+    }
+
+    /* Section À propos */
+    #about {
+        overflow: visible;
+    }
+
+    .about-wrapper {
+        overflow: visible;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-content {
+        overflow: visible;
+        position: relative;
+    }
+
+    .about-slide {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        background: var(--bg-color);
+        transform: none;
+        z-index: 1;
+        padding: 2rem 1rem;
+        overflow: visible;
+        display: block;
+        margin-top: 2rem;
+    }
+
+    .about-slide.active {
+        transform: none;
+    }
+
+    .about-navigation {
+        display: none;
+    }
+
+    .about-arrow {
+        display: none;
     }
 
     /* Veilles technologiques */
