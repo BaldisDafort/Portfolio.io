@@ -135,14 +135,25 @@ document.querySelectorAll('.project-card').forEach(card => {
 document.querySelector('.about-arrow').addEventListener('click', () => {
     const aboutSlide = document.querySelector('.about-slide');
     const aboutContent = document.querySelector('.about-content');
+    const isMobile = window.innerWidth <= 768;
     
     // Si on est déjà sur le slide, retourner au début
     if (aboutSlide.classList.contains('active')) {
         aboutSlide.classList.remove('active');
-        aboutContent.style.transform = 'translateX(0)';
+        if (!isMobile) {
+            aboutContent.style.transform = 'translateX(0)';
+        }
+        // Empêcher le défilement de la page
+        document.body.style.overflow = 'auto';
     } else {
         // Aller au slide
         aboutSlide.classList.add('active');
-        aboutContent.style.transform = 'translateX(-100%)';
+        if (!isMobile) {
+            aboutContent.style.transform = 'translateX(-100%)';
+        }
+        // Empêcher le défilement de la page sur mobile
+        if (isMobile) {
+            document.body.style.overflow = 'hidden';
+        }
     }
 });
