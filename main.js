@@ -137,29 +137,19 @@ document.querySelector('.about-arrow').addEventListener('click', () => {
     const aboutContent = document.querySelector('.about-content');
     const isMobile = window.innerWidth <= 768;
     
+    // Si on est sur mobile, ne rien faire
+    if (isMobile) {
+        return;
+    }
+    
     // Si on est déjà sur le slide, retourner au début
     if (aboutSlide.classList.contains('active')) {
         aboutSlide.classList.remove('active');
-        if (!isMobile) {
-            aboutContent.style.transform = 'translateX(0)';
-        }
-        // Réactiver le défilement de la page
-        document.body.style.overflow = 'auto';
+        aboutContent.style.transform = 'translateX(0)';
     } else {
         // Aller au slide
         aboutSlide.classList.add('active');
-        if (!isMobile) {
-            aboutContent.style.transform = 'translateX(-100%)';
-        }
-        // Empêcher le défilement de la page sur mobile
-        if (isMobile) {
-            document.body.style.overflow = 'hidden';
-            // Faire défiler vers le haut de la section
-            const aboutSection = document.getElementById('about');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+        aboutContent.style.transform = 'translateX(-100%)';
     }
 });
 
