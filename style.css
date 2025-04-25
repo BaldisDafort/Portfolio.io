@@ -315,9 +315,9 @@ main {
     background: var(--primary-color);
     color: var(--text-color);
     border: none;
-    width: 40px;
+    width: 60px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -326,6 +326,7 @@ main {
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     -webkit-tap-highlight-color: transparent;
+    gap: 5px;
 }
 
 .about-arrow:hover {
@@ -333,8 +334,10 @@ main {
     transform: scale(1.1);
 }
 
-.about-arrow i {
-    font-size: 1.2rem;
+.chevron-left, .chevron-right {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
 }
 
 /* Section Projets */
@@ -379,6 +382,35 @@ main {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     border-left: 4px solid var(--secondary-color);
+    position: relative;
+}
+
+.close-project {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.close-project:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.close-project i {
+    font-size: 1rem;
 }
 
 .project-details.active {
@@ -465,7 +497,6 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 2rem;
 }
 
 .veille-card {

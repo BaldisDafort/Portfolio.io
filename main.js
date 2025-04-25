@@ -131,6 +131,17 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
+// Gestion du bouton de fermeture des détails des projets
+document.querySelectorAll('.close-project').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation(); // Empêche la propagation de l'événement
+        const detailsContainer = button.closest('.project-details');
+        if (detailsContainer) {
+            detailsContainer.classList.remove('active');
+        }
+    });
+});
+
 // Gestion du glissement dans la section À propos
 document.querySelector('.about-arrow').addEventListener('click', () => {
     const aboutSlide = document.querySelector('.about-slide');
