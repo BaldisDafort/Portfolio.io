@@ -416,7 +416,7 @@
                 Ces deux technologies représentent des piliers majeurs dans leurs domaines respectifs et sont en constante évolution, ce qui en fait des sujets fascinants à explorer.
             </p>
             <div class="veilles-container">
-                <div class="veille-card">
+                <div class="veille-card" data-veille="react-feed">
                     <div class="veille-header">
                         <img src="img/react-logo.png" alt="Logo React" class="veille-logo">
                         <h3>React JS</h3>
@@ -427,10 +427,12 @@
                             React continue de redéfinir la manière dont nous concevons des interfaces utilisateur dynamiques et performantes. En suivant cette veille, 
                             je souhaite rester à jour sur les dernières mises à jour du framework, découvrir de nouvelles pratiques de développement, 
                             et comprendre comment React s'intègre dans des architectures complexes comme les applications full-stack ou les solutions cloud.</p>
-                        <div id="react-feed" class="veille-feed"></div>
+                        <div class="veille-click-hint">
+                            <i class="fas fa-external-link-alt"></i> Cliquez pour accéder au blog officiel React
+                        </div>
                     </div>
                 </div>
-                <div class="veille-card">
+                <div class="veille-card" data-veille="unreal-feed">
                     <div class="veille-header">
                         <img src="img/logo-unreal-engine.png" alt="Logo Unreal Engine" class="veille-logo">
                         <h3>Unreal Engine 5</h3>
@@ -440,7 +442,9 @@
                             Avec des technologies comme Nanite pour les graphismes ultra-réalistes ou Lumen pour l'éclairage dynamique, Unreal Engine 5 repousse les limites de la création visuelle. 
                             Mais au-delà des jeux vidéo, ce moteur est également utilisé dans des secteurs variés comme l'architecture, le cinéma, ou même la simulation industrielle. Ma veille sur Unreal Engine 5 me permettra de suivre les innovations techniques, 
                             de découvrir des cas d'usage inspirants, et de comprendre comment ces avancées peuvent être appliquées dans des projets concrets.</p>
-                        <div id="unreal-feed" class="veille-feed"></div>
+                        <div class="veille-click-hint">
+                            <i class="fas fa-external-link-alt"></i> Cliquez pour accéder au blog officiel Unreal Engine
+                        </div>
                     </div>
                 </div>
             </div>
@@ -449,17 +453,56 @@
         <!-- Section Contact -->
         <section id="contact" class="section">
             <h2>Contactez-moi</h2>
-            <p>Pour toute collaboration ou question, n'hésitez pas à me contacter :</p>
-            <div class="contact-links">
-                <a href="mailto:samuel.doidi@gmail.com" class="contact-button">
-                    samuel.doidi@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/samuel-doidi-412612278/" target="_blank" class="contact-button">
-                    LinkedIn
-                </a>
-                <a href="https://github.com/BaldisDafort" target="_blank" class="contact-button">
-                    GitHub
-                </a>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Informations de Contact</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:samuel.doidi@gmail.com">samuel.doidi@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Toulon, France</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <p>Étudiant en BTS SIO</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/samuel-doidi-412612278/" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/BaldisDafort" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envoyez-moi un message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Envoyer</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>

@@ -358,6 +358,7 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .project-card:hover {
@@ -471,21 +472,151 @@ main {
     padding: 4rem 2rem;
 }
 
-.contact-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--secondary-color);
-    color: var(--text-color);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-    margin-bottom: 1rem;
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 2rem;
 }
 
-.contact-button:hover {
-    background: var(--accent-color);
+.contact-info {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-card {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-item i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--secondary-color);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.contact-form {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-button {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        max-width: 100%;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
 }
 
 /* Section Veilles Technologiques */
@@ -505,6 +636,10 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .veille-card:hover {
@@ -521,6 +656,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex: 1;
 }
 
 .veille-links {
@@ -547,39 +683,74 @@ main {
     overflow-y: auto;
 }
 
-.veille-article {
+.veille-feed .veille-article {
     background: rgba(255, 255, 255, 0.1);
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     border-left: 3px solid var(--secondary-color);
+    cursor: pointer;
+}
+
+.veille-articles {
+    display: none;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.veille-article {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.veille-article:hover {
+    transform: translateX(5px);
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.article-category {
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
 .veille-article h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-.veille-article .date {
-    color: #666;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
-.veille-article .veille-link {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    background: var(--secondary-color);
     color: var(--text-color);
-    text-decoration: none;
-    border-radius: 3px;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }
 
-.veille-article .veille-link:hover {
-    background: var(--accent-color);
+.veille-article p {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
 }
 
 .veille-header {
@@ -670,6 +841,7 @@ footer {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .competence-item:hover {
@@ -1000,5 +1172,192 @@ footer {
 
     h3 {
         font-size: 1.2rem;
+    }
+}
+
+.veille-updates {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.veille-updates h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.veille-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.veille-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.veille-article {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.veille-article:hover {
+    transform: translateX(5px);
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.article-category {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.veille-article h4 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.veille-article p {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
+}
+
+@media screen and (max-width: 768px) {
+    .veille-filters {
+        justify-content: center;
+    }
+
+    .filter-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .veille-article {
+        padding: 1rem;
+    }
+
+    .article-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+.veille-click-hint {
+    margin-top: auto;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.veille-card:hover .veille-click-hint {
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+.veille-click-hint i {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .veilles-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .veille-card {
+        padding: 1rem;
+    }
+
+    .veille-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .veille-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .veille-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .veille-click-hint {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .veille-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .veille-content p {
+        font-size: 0.85rem;
+    }
+
+    .veille-click-hint {
+        padding: 0.5rem;
+        font-size: 0.75rem;
     }
 }
