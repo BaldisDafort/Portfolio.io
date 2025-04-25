@@ -813,8 +813,8 @@ footer {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        padding: 0 1rem;
+        justify-content: center;
+        padding: 0;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
@@ -825,12 +825,12 @@ footer {
     .nav-links {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         width: 100%;
         padding: 0;
         margin: 0;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     .nav-link {
@@ -849,6 +849,12 @@ footer {
     main {
         padding-left: 0;
         padding-top: 60px;
+        width: 100%;
+    }
+
+    /* Footer */
+    footer {
+        margin-left: 0;
         width: 100%;
     }
 
