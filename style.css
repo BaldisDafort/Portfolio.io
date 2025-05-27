@@ -463,6 +463,14 @@ main {
     object-fit: contain;
 }
 
+.project-details .gantt-image {
+    display: flex;
+    justify-content: auto;
+    align-items: center;
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
 /* Section Contact */
 #contact {
     display: flex;
