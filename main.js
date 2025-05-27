@@ -102,25 +102,33 @@ setInterval(updateAllFeeds, 3600000);
 // Gestion des détails des projets
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', () => {
+        console.log('Clic sur une carte de projet détecté');
         const projectId = card.getAttribute('data-project');
-        const detailsContainer = document.getElementById(`${projectId}-details`);
+        console.log('ID du projet cliqué:', projectId);
         
+        const detailsContainer = document.getElementById(`${projectId}-details`);
+        console.log('Conteneur de détails trouvé:', detailsContainer);
+        
+        // Masquer tous les détails
+        document.querySelectorAll('.project-details').forEach(detail => {
+            console.log('Masquage des détails:', detail.id);
+            detail.classList.remove('active');
+        });
+        
+        // Afficher les détails du projet sélectionné
         if (detailsContainer) {
-            // Masquer tous les détails
-            document.querySelectorAll('.project-details').forEach(detail => {
-                detail.classList.remove('active');
-            });
-            
-            // Afficher les détails du projet sélectionné
+            console.log('Ajout de la classe active au conteneur:', detailsContainer.id);
             detailsContainer.classList.add('active');
-            
-            // Ajouter un overlay pour le fond
-            const overlay = document.createElement('div');
-            overlay.className = 'overlay';
-            document.body.appendChild(overlay);
-            
-            // Empêcher le défilement du body
-            document.body.style.overflow = 'hidden';
+            // Défilement vers les détails avec un offset pour la navigation
+            const offset = window.innerWidth <= 768 ? 80 : 0; // Offset pour mobile
+            const detailsPosition = detailsContainer.getBoundingClientRect().top + window.pageYOffset - offset;
+            console.log('Position de défilement calculée:', detailsPosition);
+            window.scrollTo({
+                top: detailsPosition,
+                behavior: 'smooth'
+            });
+        } else {
+            console.error('Conteneur de détails non trouvé pour le projet:', projectId);
         }
     });
 });
@@ -128,17 +136,13 @@ document.querySelectorAll('.project-card').forEach(card => {
 // Gestion du bouton de fermeture des détails des projets
 document.querySelectorAll('.close-project').forEach(button => {
     button.addEventListener('click', (e) => {
+        console.log('Clic sur le bouton de fermeture détecté');
         e.stopPropagation();
         const detailsContainer = button.closest('.project-details');
+        console.log('Conteneur parent trouvé:', detailsContainer?.id);
         if (detailsContainer) {
+            console.log('Suppression de la classe active du conteneur:', detailsContainer.id);
             detailsContainer.classList.remove('active');
-            // Supprimer l'overlay
-            const overlay = document.querySelector('.overlay');
-            if (overlay) {
-                overlay.remove();
-            }
-            // Réactiver le défilement du body
-            document.body.style.overflow = 'auto';
         }
     });
 });
